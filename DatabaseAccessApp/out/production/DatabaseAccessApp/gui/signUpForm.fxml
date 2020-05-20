@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0"
+      prefWidth="1100.0" style="-fx-background-color: ghostwhite;" xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.signUpHandler">
+   <children>
+      <Label alignment="CENTER_RIGHT" layoutX="422.0" layoutY="81.0" text="SIGN UP" textFill="DIMGRAY">
+         <font>
+            <Font name="System Bold" size="64.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usrField" layoutX="154.0" layoutY="229.0" prefHeight="55.0" prefWidth="327.0" promptText="Username" />
+      <TextField fx:id="emailField" layoutX="154.0" layoutY="305.0" prefHeight="55.0" prefWidth="327.0" promptText="Email" />
+      <PasswordField fx:id="passwdField" layoutX="154.0" layoutY="379.0" prefHeight="55.0" prefWidth="327.0" promptText="Password" />
+      <PasswordField fx:id="confirmPasswdField" layoutX="154.0" layoutY="453.0" prefHeight="55.0" prefWidth="327.0" promptText="Confirm Password" />
+      <TextField fx:id="firstNameField" layoutX="536.0" layoutY="229.0" prefHeight="55.0" prefWidth="211.0" promptText="First Name" />
+      <TextField fx:id="lastNameField" layoutX="761.0" layoutY="229.0" prefHeight="55.0" prefWidth="211.0" promptText="Last Name" />
+      <TextField fx:id="genderField" layoutX="536.0" layoutY="311.0" prefHeight="55.0" prefWidth="138.0" promptText="Gender" />
+      <TextField fx:id="countryField" layoutX="687.0" layoutY="311.0" prefHeight="55.0" prefWidth="286.0" promptText="Country" />
+      <TextField fx:id="dayField" layoutX="535.0" layoutY="453.0" prefHeight="55.0" prefWidth="110.0" promptText="DD" />
+      <TextField fx:id="monthField" layoutX="675.0" layoutY="453.0" prefHeight="55.0" prefWidth="110.0" promptText="MM" />
+      <TextField fx:id="yearField" layoutX="814.0" layoutY="453.0" prefHeight="55.0" prefWidth="110.0" promptText="YYYY" />
+      <Label layoutX="536.0" layoutY="406.0" text="Date Of Birth" textFill="DIMGRAY">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="651.0" layoutY="454.0" text="/" textFill="DIMGRAY">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="791.0" layoutY="454.0" text="/" textFill="DIMGRAY">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="aboutField" layoutX="332.0" layoutY="538.0" prefHeight="192.0" prefWidth="437.0" promptText="Something about yourself" />
+      <Label layoutX="481.0" layoutY="229.0" prefHeight="21.0" prefWidth="0.0" text="*" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="481.0" layoutY="305.0" prefHeight="21.0" prefWidth="0.0" text="*" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="481.0" layoutY="379.0" prefHeight="21.0" prefWidth="0.0" text="*" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="481.0" layoutY="453.0" prefHeight="21.0" prefWidth="0.0" text="*" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="submitBtn" layoutX="508.0" layoutY="754.0" mnemonicParsing="false" onAction="#submitSignUpForm"
+              style="-fx-background-color: darkturquoise;" text="Submit" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</Pane>

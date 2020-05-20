@@ -2,8 +2,8 @@ package backend.component;
 
 import backend.modify.Modifier;
 import backend.modify.NotificationModifier;
+import backend.query.Querier;
 
-import java.sql.Connection;
 import java.sql.Date;
 
 public class Notification implements forumRelation{
@@ -11,13 +11,10 @@ public class Notification implements forumRelation{
     private Date dateSent;
     private String content;
 
-    public Notification(String content) {
-        this.dateSent = new Date(new java.util.Date().getTime());
+    public Notification(int ID, Date dateSent, String content) {
+        this.ID = ID;
+        this.dateSent = dateSent;
         this.content = content;
-    }
-
-    public Notification(int ID, NotificationModifier modifier) {
-        cloneFromDatabase(ID, modifier);
     }
 
     public int getID() {
@@ -47,7 +44,7 @@ public class Notification implements forumRelation{
     }
 
     @Override
-    public void cloneFromDatabase(int ID, Modifier modifier) {
+    public void cloneFromDatabase(int ID, Querier querier) {
 
     }
 

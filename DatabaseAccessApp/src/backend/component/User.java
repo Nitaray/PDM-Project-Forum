@@ -2,7 +2,7 @@ package backend.component;
 
 import backend.auth.AuthUtil;
 import backend.modify.Modifier;
-import backend.modify.UserModifier;
+import backend.query.Querier;
 
 import java.sql.Date;
 
@@ -23,26 +23,20 @@ public class User implements forumRelation{
     private String about;
     private int roleID;
 
-    public User(String username, String email, String firstName, String lastName, Date dateOfBirth,
-                String gender, String country, String password, String about, int roleID) {
+    public User(int id, String username, String email, String firstName, String lastName, Date dateOfBirth,
+                String status, Date registrationDate, String gender, String country, String password, String about, int roleID) {
         this.username = username;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
-        this.status = "Active";
-        this.registrationDate = new Date(new java.util.Date().getTime());
+        this.status = status;
+        this.registrationDate = registrationDate;
         this.gender = gender;
         this.country = country;
         this.password = password;
         this.about = about;
         this.roleID = roleID;
-        initPassword();
-    }
-
-    public User(int ID, UserModifier modifier) {
-        this.ID = ID;
-        cloneFromDatabase(ID, modifier);
     }
 
     public int getID() {
@@ -133,16 +127,6 @@ public class User implements forumRelation{
         this.roleID = roleID;
     }
 
-    private void initPassword() {
-        long loops = registrationDate.getTime() % (ID % passMOD);
-        for (int i = 0; i < loops; i++)
-            SaltHashPassword();
-    }
-
-    private void SaltHashPassword() {
-        password = AuthUtil.hashString(registrationDate.toString() + password + ID);
-    }
-
     @Override
     public void addToDatabase(Modifier modifier) {
 
@@ -154,7 +138,7 @@ public class User implements forumRelation{
     }
 
     @Override
-    public void cloneFromDatabase(int ID, Modifier modifier) {
+    public void cloneFromDatabase(int ID, Querier querier) {
 
     }
 

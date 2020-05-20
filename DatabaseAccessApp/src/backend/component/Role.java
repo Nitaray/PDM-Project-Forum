@@ -2,19 +2,15 @@ package backend.component;
 
 import backend.modify.Modifier;
 import backend.modify.RoleModifier;
-
-import java.sql.Connection;
+import backend.query.Querier;
 
 public class Role implements forumRelation{
     private int ID;
     private String roleName;
 
-    public Role(String roleName) {
+    public Role(int ID, String roleName) {
+        this.ID = ID;
         this.roleName = roleName;
-    }
-
-    public Role(int ID, RoleModifier modifier) {
-        cloneFromDatabase(ID, modifier);
     }
 
     public int getID() {
@@ -41,7 +37,7 @@ public class Role implements forumRelation{
     }
 
     @Override
-    public void cloneFromDatabase(int ID, Modifier modifier) {
+    public void cloneFromDatabase(int ID, Querier querier) {
 
     }
 

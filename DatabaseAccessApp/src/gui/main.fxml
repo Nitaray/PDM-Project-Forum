@@ -6,38 +6,17 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
-      prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.Controller">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.MainController">
    <children>
-      <Pane prefHeight="80.0" prefWidth="1280.0" style="-fx-background-color: #696969;">
+      <HBox fx:id="header" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #696969;" />
+      <HBox fx:id="body" prefHeight="980.0" prefWidth="1920.0">
          <children>
-            <PasswordField layoutX="937.0" layoutY="25.0" prefHeight="31.0" prefWidth="150.0" />
-            <TextField layoutX="677.0" layoutY="25.0" prefHeight="31.0" prefWidth="150.0" />
-            <Label layoutX="578.0" layoutY="27.0" text="Username" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="846.0" layoutY="27.0" text="Password" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Button fx:id="loginBtn" layoutX="1106.0" layoutY="25.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: darkturquoise;" text="Login" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="signUpBtn" layoutX="1182.0" layoutY="25.0" mnemonicParsing="false" onAction="#signUp" style="-fx-background-color: darkturquoise;" text="Sign up" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <ImageView fitHeight="107.0" fitWidth="150.0" layoutX="7.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@LOGO.png" />
-               </image></ImageView>
-         </children>
-      </Pane>
+            <Pane fx:id="leftBodyPane" prefHeight="980.0" prefWidth="410.0" style="-fx-background-color: darkgrey;" />
+            <ScrollPane fx:id="scrollBody" hbarPolicy="NEVER" prefHeight="980.0" prefWidth="1100.0" vbarPolicy="NEVER">
+               <content>
+                  <VBox fx:id="scrollBodyContent" prefHeight="980.0" prefWidth="1100.0" />
+               </content></ScrollPane>
+            <Pane fx:id="rightBodyPane" prefHeight="980.0" prefWidth="410.0" style="-fx-background-color: darkgrey;" />
+         </children></HBox>
    </children>
 </VBox>

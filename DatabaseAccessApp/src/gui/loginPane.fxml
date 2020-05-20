@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="100.0" prefWidth="1120.0" style="-fx-background-color: rgba(0, 100, 100, 0);"
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.LoginController">
+   <children>
+      <PasswordField layoutX="768.0" layoutY="35.0" prefHeight="31.0" prefWidth="150.0" />
+      <TextField layoutX="518.0" layoutY="35.0" prefHeight="31.0" prefWidth="150.0" />
+      <Label layoutX="423.0" layoutY="37.0" text="Username" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="678.0" layoutY="37.0" text="Password" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="loginBtn" layoutX="929.0" layoutY="35.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: darkturquoise;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="signUpBtn" layoutX="1005.0" layoutY="35.0" mnemonicParsing="false" onAction="#signUp"
+              style="-fx-background-color: darkturquoise;" text="Sign up" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</Pane>

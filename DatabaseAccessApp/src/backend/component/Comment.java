@@ -2,8 +2,8 @@ package backend.component;
 
 import backend.modify.CommentModifier;
 import backend.modify.Modifier;
+import backend.query.Querier;
 
-import java.sql.Connection;
 import java.sql.Date;
 
 public class Comment implements forumRelation{
@@ -13,15 +13,12 @@ public class Comment implements forumRelation{
     private Date dateCreated;
     private String content;
 
-    public Comment(int creatorID, int threadID, String content) {
+    public Comment(int ID, int creatorID, int threadID, Date dateCreated, String content) {
+        this.ID = ID;
         this.creatorID = creatorID;
         this.threadID = threadID;
-        this.dateCreated = new java.sql.Date(new java.util.Date().getTime());
+        this.dateCreated = dateCreated;
         this.content = content;
-    }
-
-    public Comment(int ID, CommentModifier modifier) {
-        cloneFromDatabase(ID, modifier);
     }
 
     public int getID() {
@@ -68,7 +65,7 @@ public class Comment implements forumRelation{
     }
 
     @Override
-    public void cloneFromDatabase(int ID, Modifier modifier) {
+    public void cloneFromDatabase(int ID, Querier querier) {
 
     }
 
