@@ -3,10 +3,7 @@ package backend.query;
 import backend.component.User;
 import backend.component.forumRelation;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class UserQuerier extends Querier{
@@ -14,7 +11,7 @@ public class UserQuerier extends Querier{
     public UserQuerier(Connection connection) {
         super(connection);
 
-        querySQL = "SELECT  * FROM \'User\' WHERE UserID = ?";
+        querySQL = "SELECT  * FROM \"User\" WHERE UserID = ?";
 
         try {
             queryStatement = connection.prepareStatement(querySQL);
@@ -24,8 +21,8 @@ public class UserQuerier extends Querier{
     }
 
     @Override
-    protected <E extends forumRelation> ArrayList<E> prepareRelation(ResultSet res) {
-        ArrayList<E> relations = new ArrayList<>();
+    protected <E extends forumRelation> ArrayList<E> prepareRelations(ResultSet res) {
+        ArrayList<User> relations = new ArrayList<>();
 
         try {
             String username, email, firstName, lastName, status, gender, country, password, about;
@@ -47,13 +44,41 @@ public class UserQuerier extends Querier{
                 password = res.getString(idx++);
                 about = res.getString(idx++);
                 roleID = res.getInt(idx++);
-                relations.add((E) new User(userID, username, email, firstName, lastName, DOB, status, regDate, gender,
+                relations.add(new User(userID, username, email, firstName, lastName, DOB, status, regDate, gender,
                         country, password, about, roleID));
             }
+            return (ArrayList<E>) relations;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return null;
+    }
+
+    public boolean checkUsername(String username) {
+        String SQL = "SELECT * FROM \"User\" WHERE Username = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(SQL);
+            statement.setString(1, username);
+            ResultSet res = statement.executeQuery();
+
+            return res.isBeforeFirst();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean checkEmail(String email) {
+        String SQL = "SELECT * FROM \"User\" WHERE Email = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(SQL);
+            statement.setString(1, email);
+            ResultSet res = statement.executeQuery();
+
+            return res.isBeforeFirst();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

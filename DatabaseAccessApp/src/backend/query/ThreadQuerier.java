@@ -21,7 +21,7 @@ public class ThreadQuerier extends Querier{
     }
 
     @Override
-    protected <E extends forumRelation> ArrayList<E> prepareRelation(ResultSet res) {
+    protected <E extends forumRelation> ArrayList<E> prepareRelations(ResultSet res) {
         return null;
     }
 }

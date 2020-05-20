@@ -6,16 +6,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: rgba(0, 0, 0, 0);"
-      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.NavPaneController">
+<Pane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: rgba(0, 0, 0, 0);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.NavPaneController">
    <children>
       <ImageView fx:id="logo" fitHeight="92.0" fitWidth="172.0" onMouseClicked="#loadMainPage" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
          <image>
-            <Image url="@../../resources/LOGO.png" />
+            <Image url="@LOGO.png" />
          </image>
       </ImageView>
-      <Label fx:id="navTOP" layoutX="220.0" layoutY="40.0" onMouseClicked="#loadTopPosts" style="-fx-cursor: hand;"
-             text="TOP" textFill="#aeaeae">
+      <Label fx:id="navTOP" layoutX="220.0" layoutY="40.0" onMouseClicked="#loadTopPosts" style="-fx-cursor: hand;" text="TOP" textFill="#aeaeae">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>

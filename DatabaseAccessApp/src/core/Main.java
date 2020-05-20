@@ -16,7 +16,7 @@ public class Main {
     private static final String password = "123456789";
 
     public static void main(String[] args) {
-//        DatabaseConnectionManager.init(URL, username, password);
+        DatabaseConnectionManager.init(URL, username, password);
         Window.start(args);
     }
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 
 <Pane prefHeight="100.0" prefWidth="1120.0" style="-fx-background-color: rgba(0, 100, 100, 0);"
-      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.LoginController">
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.LoginController">
    <children>
       <PasswordField layoutX="768.0" layoutY="35.0" prefHeight="31.0" prefWidth="150.0" />
       <TextField layoutX="518.0" layoutY="35.0" prefHeight="31.0" prefWidth="150.0" />
