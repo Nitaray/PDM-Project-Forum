@@ -65,7 +65,7 @@ public class Modifier {
 
 
     protected void setStatementParams(PreparedStatement statement, List<Pair<String, ?>> values) {
-        for (int index = 1; index <= 9; index++) {
+        for (int index = 1; index <= 12; index++) {
             try {
                 statement.setNull(index, Types.NULL);
             } catch (SQLException e) {
@@ -74,7 +74,7 @@ public class Modifier {
         }
 
         values.forEach(e -> {
-            if (fields.containsKey(e.getKey())) {
+            if (fields.containsKey(e.getKey()) && e.getValue() != null) {
                 try {
                     statement.setObject(fields.get(e.getKey()), e.getValue());
                 } catch (SQLException ex) {

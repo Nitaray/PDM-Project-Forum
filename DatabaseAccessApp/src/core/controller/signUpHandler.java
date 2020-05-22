@@ -1,5 +1,6 @@
 package core.controller;
 
+import backend.auth.AuthUtil;
 import backend.component.User;
 import backend.modify.UserModifier;
 import backend.query.UserQuerier;
@@ -9,7 +10,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.util.Pair;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class signUpHandler {
 
@@ -51,14 +54,30 @@ public class signUpHandler {
 
     public void submitSignUpForm() {
         UserQuerier userQuerier = new UserQuerier(DatabaseConnectionManager.getDBConnection());
-        if (!userQuerier.checkUsername(usrField.getText()) && !userQuerier.checkEmail(emailField.getText())) {
+        if (!userQuerier.checkUsername(usrField.getText()) && !userQuerier.checkEmail(emailField.getText()) && passwdField.getText().equals(confirmPasswdField.getText())) {
+
+            String dobStr = yearField.getText() + '-' + monthField.getText() + '-' + dayField.getText();
+            Date DOB = null;
+            if (dobStr.matches("\\d{1,2}-\\d{1,2}-\\d{1,4}"))
+                DOB = Date.valueOf(dobStr);
+            Date regDate = new Date(new java.util.Date().getTime());
+            String hashedPassword = AuthUtil.hashString(passwdField.getText() + new Random(regDate.getTime()).nextInt());
+
             UserModifier userModifier = new UserModifier(DatabaseConnectionManager.getDBConnection());
+            Date finalDOB = DOB;
             userModifier.add(new ArrayList<Pair<String, ?>>() {{
                 add(new Pair<>("Username", usrField.getText()));
                 add(new Pair<>("Email", emailField.getText()));
                 add(new Pair<>("FirstName", firstNameField.getText()));
                 add(new Pair<>("LastName", lastNameField.getText()));
-                add(new Pair<>("DateOfBirth"))
+                add(new Pair<>("DateOfBirth", finalDOB));
+                add(new Pair<>("Status", "ACTIVE"));
+                add(new Pair<>("RegistrationDate", new Date(new java.util.Date().getTime())));
+                add(new Pair<>("Gender", genderField.getText()));
+                add(new Pair<>("Country", countryField.getText()));
+                add(new Pair<>("Password", hashedPassword));
+                add(new Pair<>("About", aboutField.getText()));
+                add(new Pair<>("RoleID", 1));
             }});
         }
     }

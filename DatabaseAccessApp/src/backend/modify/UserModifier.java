@@ -13,14 +13,17 @@ public class UserModifier extends Modifier {
         fields.put("FirstName", 3);
         fields.put("LastName", 4);
         fields.put("DateOfBirth", 5);
-        fields.put("Gender", 6);
-        fields.put("Country", 7);
-        fields.put("Password", 8);
-        fields.put("About", 9);
-        fields.put("RoleID", 10);
+        fields.put("Status", 6);
+        fields.put("RegistrationDate", 7);
+        fields.put("Gender", 8);
+        fields.put("Country", 9);
+        fields.put("Password", 10);
+        fields.put("About", 11);
+        fields.put("RoleID", 12);
 
-        addSQL = "INSERT INTO \"User\" (Username, Email, FirstName, LastName, DateOfBirth, Gender, Country, Password, About, RoleID)" +
-                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        addSQL = "INSERT INTO \"User\" (Username, Email, FirstName, LastName, DateOfBirth, Status, RegistrationDate, " +
+                "Gender, Country, Password, About, RoleID)" +
+                " VALUES (?, ?, ?, ?, CONVERT(datetime2, ?), ?, ?, ?, ?, ?, ?, ?)";
         removeSQL = "DELETE FROM \"User\" WHERE UserID = ?";
         updateSQL = "UPDATE \"User\" SET" +
                 " Username = ?," +
