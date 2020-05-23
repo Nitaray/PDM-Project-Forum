@@ -30,9 +30,15 @@ public class MainController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        setMainControllers();
+    }
+
+    private void setMainControllers() {
         LoginController.mainController = this;
         NavPaneController.mainController = this;
         SignUpHandler.mainController = this;
+        ThreadViewController.mainController = this;
+        ThreadPreviewController.mainController = this;
     }
 
     public void clearBody() {

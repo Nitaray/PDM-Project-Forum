@@ -13,17 +13,17 @@
             <Image url="@LOGO.png" />
          </image>
       </ImageView>
-      <Label fx:id="navTOP" layoutX="220.0" layoutY="40.0" onMouseClicked="#loadTopPosts" style="-fx-cursor: hand;" text="TOP" textFill="#aeaeae">
+      <Label fx:id="navTOP" layoutX="220.0" layoutY="40.0" onMouseClicked="#loadTopPosts" onMouseDragEntered="#selectTOP" onMouseDragExited="#deselectTOP" style="-fx-cursor: hand;" text="TOP" textFill="#aeaeae">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="navHOT" layoutX="341.0" layoutY="40.0" onMouseClicked="#loadHotPosts" style="-fx-cursor: hand;" text="HOT" textFill="#aeaeae">
+      <Label fx:id="navHOT" layoutX="341.0" layoutY="40.0" onMouseClicked="#loadHotPosts" onMouseDragEntered="#selectHOT" onMouseDragExited="#deselectHOT" style="-fx-cursor: hand;" text="HOT" textFill="#aeaeae">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="navFOLLOWED" layoutX="475.0" layoutY="40.0" onMouseClicked="#loadFollowedPosts" style="-fx-cursor: hand;" text="FOLLOWED" textFill="#aeaeae">
+      <Label fx:id="navFOLLOWED" layoutX="475.0" layoutY="40.0" onMouseClicked="#loadFollowedPosts" onMouseDragEntered="#selectFL" onMouseDragExited="#deselectFL" style="-fx-cursor: hand;" text="FOLLOWED" textFill="#aeaeae">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>

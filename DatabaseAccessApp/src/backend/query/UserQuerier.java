@@ -26,7 +26,7 @@ public class UserQuerier extends Querier{
 
         try {
             String username, email, firstName, lastName, status, gender, country, password, about;
-            Date DOB, regDate;
+            Timestamp DOB, regDate;
             int userID, roleID;
 
             while (res.next()) {
@@ -36,9 +36,9 @@ public class UserQuerier extends Querier{
                 email = res.getString(idx++);
                 firstName = res.getString(idx++);
                 lastName = res.getString(idx++);
-                DOB = res.getDate(idx++);
+                DOB = res.getTimestamp(idx++);
                 status = res.getString(idx++);
-                regDate = res.getDate(idx++);
+                regDate = res.getTimestamp(idx++);
                 gender = res.getString(idx++);
                 country = res.getString(idx++);
                 password = res.getString(idx++);

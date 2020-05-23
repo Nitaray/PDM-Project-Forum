@@ -20,7 +20,7 @@ public class ThreadModifier extends Modifier {
                 " WHERE ThreadID = ?";
 
         addSQL = "INSERT INTO \"Thread\" (UserID, DateCreated, ThreadTitle, Content)" +
-                " VALUES (?, ?, ?, ?)";
+                " VALUES (?, CONVERT(datetime2, ?), ?, ?)";
 
         removeSQL = "DELETE FROM \"Thread\" WHERE ThreadID = ?";
 

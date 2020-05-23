@@ -5,6 +5,7 @@ import backend.modify.Modifier;
 import backend.query.Querier;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class User implements forumRelation{
     private static final int passMOD = 31;
@@ -14,17 +15,17 @@ public class User implements forumRelation{
     private String email;
     private String firstName;
     private String lastName;
-    private Date dateOfBirth;
+    private Timestamp dateOfBirth;
     private String status;
-    private Date registrationDate;
+    private Timestamp registrationDate;
     private String gender;
     private String country;
     private String password;
     private String about;
     private int roleID;
 
-    public User(int id, String username, String email, String firstName, String lastName, Date dateOfBirth,
-                String status, Date registrationDate, String gender, String country, String password, String about, int roleID) {
+    public User(int id, String username, String email, String firstName, String lastName, Timestamp dateOfBirth,
+                String status, Timestamp registrationDate, String gender, String country, String password, String about, int roleID) {
         this.username = username;
         this.email = email;
         this.firstName = firstName;
@@ -59,7 +60,7 @@ public class User implements forumRelation{
         return lastName;
     }
 
-    public Date getDateOfBirth() {
+    public Timestamp getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -67,7 +68,7 @@ public class User implements forumRelation{
         return status;
     }
 
-    public Date getRegistrationDate() {
+    public Timestamp getRegistrationDate() {
         return registrationDate;
     }
 
@@ -99,7 +100,7 @@ public class User implements forumRelation{
         this.lastName = lastName;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(Timestamp dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

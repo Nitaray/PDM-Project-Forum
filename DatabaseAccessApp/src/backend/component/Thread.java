@@ -5,15 +5,16 @@ import backend.modify.ThreadModifier;
 import backend.query.Querier;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Thread implements forumRelation {
     private int ID;
     private int userID;
-    private Date dateCreated;
+    private Timestamp dateCreated;
     private String title;
     private String content;
 
-    public Thread(int ID, int userID, Date dateCreated, String title, String content) {
+    public Thread(int ID, int userID, Timestamp dateCreated, String title, String content) {
         this.ID = ID;
         this.userID = userID;
         this.dateCreated = dateCreated;
@@ -29,7 +30,7 @@ public class Thread implements forumRelation {
         return userID;
     }
 
-    public Date getDateCreated() {
+    public Timestamp getDateCreated() {
         return dateCreated;
     }
 
