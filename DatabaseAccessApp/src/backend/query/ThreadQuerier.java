@@ -117,4 +117,24 @@ public class ThreadQuerier extends Querier{
         }
         return null;
     }
+
+    public ArrayList<Integer> getFollowedThreadsID(int userID) {
+        String SQL = "SELECT Thread.ThreadID FROM Thread " +
+                "JOIN Follows F on Thread.ThreadID = F.ThreadID " +
+                "WHERE F.UserID = ? " +
+                "ORDER BY FollowDate DESC ";
+        try {
+            PreparedStatement statement = connection.prepareStatement(SQL);
+            statement.setInt(1, userID);
+            ResultSet res = statement.executeQuery();
+            ArrayList<Integer> ids = new ArrayList<>();
+            while (res.next()) {
+                ids.add(res.getInt(1));
+            }
+            return ids;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

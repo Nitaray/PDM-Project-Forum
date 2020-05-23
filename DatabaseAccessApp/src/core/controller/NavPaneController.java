@@ -2,6 +2,7 @@ package core.controller;
 
 import backend.query.ThreadQuerier;
 import core.DatabaseConnectionManager;
+import core.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -61,12 +62,15 @@ public class NavPaneController {
     public void loadHotPosts() {
         mainController.clearBody();
         ThreadQuerier threadQuerier = new ThreadQuerier(DatabaseConnectionManager.getDBConnection());
-        ArrayList<Integer> topThreadsID = threadQuerier.getHotThreadsID();
-        loadThreadPreviews(topThreadsID);
+        ArrayList<Integer> hotThreadsID = threadQuerier.getHotThreadsID();
+        loadThreadPreviews(hotThreadsID);
     }
 
     public void loadFollowedPosts() {
-
+        mainController.clearBody();
+        ThreadQuerier threadQuerier = new ThreadQuerier(DatabaseConnectionManager.getDBConnection());
+        ArrayList<Integer> followedThreadsID = threadQuerier.getFollowedThreadsID(UserSession.getUserID());
+        loadThreadPreviews(followedThreadsID);
     }
 
     private void loadThreadPreviews(ArrayList<Integer> threadIDS) {

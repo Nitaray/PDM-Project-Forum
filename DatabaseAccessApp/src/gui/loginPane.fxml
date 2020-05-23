@@ -6,11 +6,26 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="100.0" prefWidth="1120.0" style="-fx-background-color: rgba(0, 100, 100, 0);"
-      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.LoginController">
+<Pane prefHeight="100.0" prefWidth="1120.0" style="-fx-background-color: rgba(0, 100, 100, 0);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.LoginController">
    <children>
-      <PasswordField layoutX="768.0" layoutY="35.0" prefHeight="31.0" prefWidth="150.0" />
-      <TextField layoutX="518.0" layoutY="35.0" prefHeight="31.0" prefWidth="150.0" />
+      <TextField fx:id="username" layoutX="518.0" layoutY="35.0" prefHeight="31.0" prefWidth="150.0" />
+      <PasswordField fx:id="password" layoutX="768.0" layoutY="35.0" onAction="#login" prefHeight="31.0" prefWidth="150.0" />
+      <Button fx:id="loginBtn" layoutX="929.0" layoutY="35.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: darkturquoise;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="signUpBtn" layoutX="1005.0" layoutY="35.0" mnemonicParsing="false" onAction="#signUp" style="-fx-background-color: darkturquoise;" text="Sign up" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
       <Label layoutX="423.0" layoutY="37.0" text="Username" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -21,22 +36,15 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="loginBtn" layoutX="929.0" layoutY="35.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: darkturquoise;" text="Login" textFill="WHITE">
+      <Label fx:id="usernameWarning" layoutX="518.0" layoutY="66.0" textFill="#fff900">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="14.0" />
          </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="signUpBtn" layoutX="1005.0" layoutY="35.0" mnemonicParsing="false" onAction="#signUp"
-              style="-fx-background-color: darkturquoise;" text="Sign up" textFill="WHITE">
+      </Label>
+      <Label fx:id="passwdWarning" layoutX="768.0" layoutY="66.0" textFill="#fff900">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font size="14.0" />
          </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
+      </Label>
    </children>
 </Pane>

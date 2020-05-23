@@ -1,5 +1,7 @@
 package backend.auth;
 
+import core.DatabaseConnectionManager;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,13 +10,9 @@ import java.sql.ResultSet;
  * Communicates with the database and validates the user's authenticity.
  */
 public class UserAuthenticator {
-    private Connection connection;
+    private static Connection connection = DatabaseConnectionManager.getDBConnection();
 
-    public UserAuthenticator(Connection connection) {
-        this.connection = connection;
-    }
-
-    public boolean auth(String username, String hashedPassword) {
+    public static boolean auth(String username, String password) {
         boolean authentication = false;
         try {
             String SQL = "SELECT Password FROM \"User\" WHERE Username = ?";
@@ -29,12 +27,11 @@ public class UserAuthenticator {
 
             res.next();
             String correctPassword = res.getString(1);
+            String hashed = AuthUtil.hashString(password);
 
-            if (correctPassword.equals(hashedPassword))
+            if (correctPassword.equals(hashed))
                 authentication = true;
 
-            statement.close();
-            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

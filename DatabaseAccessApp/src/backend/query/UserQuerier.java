@@ -81,4 +81,59 @@ public class UserQuerier extends Querier{
         }
         return false;
     }
+
+    public int getID(String username) {
+        String SQL = "SELECT UserID FROM \"User\" WHERE Username = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(SQL);
+            statement.setString(1, username);
+            ResultSet res = statement.executeQuery();
+
+            if (res.isBeforeFirst()) {
+                res.next();
+                return res.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+
+    public Timestamp getRegDate(int id) {
+        String SQL = "SELECT RegistrationDate FROM \"User\" WHERE UserID = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(SQL);
+            statement.setInt(1, id);
+            ResultSet res = statement.executeQuery();
+
+            if (res.isBeforeFirst()) {
+                res.next();
+                return res.getTimestamp(1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public int getRoleID(int id) {
+        String SQL = "SELECT RoleID FROM \"User\" WHERE UserID = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(SQL);
+            statement.setInt(1, id);
+            ResultSet res = statement.executeQuery();
+
+            if (res.isBeforeFirst()) {
+                res.next();
+                return res.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

@@ -1,5 +1,6 @@
 package core.controller;
 
+import core.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,18 +20,24 @@ public class MainController implements Initializable {
     private HBox body;
     @FXML
     private VBox scrollBodyContent;
+    @FXML
+    private Pane leftBodyPane, rightBodyPane;
+
+    private Pane navPane, loginPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        UserSession.reset();
         try {
-            Pane navPane = FXMLLoader.load(getClass().getResource("../../gui/navPane.fxml"));
-            Pane loginPane = FXMLLoader.load(getClass().getResource("../../gui/loginPane.fxml"));
+            navPane = FXMLLoader.load(getClass().getResource("../../gui/navPane.fxml"));
+            loginPane = FXMLLoader.load(getClass().getResource("../../gui/loginPane.fxml"));
             header.getChildren().add(navPane);
             header.getChildren().add(loginPane);
         } catch (IOException e) {
             e.printStackTrace();
         }
         setMainControllers();
+        new NavPaneController().loadMainPage();
     }
 
     private void setMainControllers() {
@@ -39,6 +46,7 @@ public class MainController implements Initializable {
         SignUpHandler.mainController = this;
         ThreadViewController.mainController = this;
         ThreadPreviewController.mainController = this;
+        UserPaneController.mainController = this;
     }
 
     public void clearBody() {
@@ -50,6 +58,25 @@ public class MainController implements Initializable {
             scrollBodyContent.getChildren().add(pane);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void updateUI() {
+        if (UserSession.isLoggedIn()) {
+            header.getChildren().remove(loginPane);
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../../gui/userPane.fxml"));
+                Pane userPane = loader.load();
+                header.getChildren().add(userPane);
+                UserPaneController userPaneController = loader.getController();
+                userPaneController.init(UserSession.getUsername(), UserSession.getUserRoleID());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            header.getChildren().remove(1);
+            header.getChildren().add(loginPane);
         }
     }
 }

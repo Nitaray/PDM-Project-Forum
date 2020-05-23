@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1120.0" style="-fx-background-color: rgba(0, 0, 0, 0);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.UserPaneController">
+   <children>
+      <Circle fx:id="rankCircle" fill="#1fff4f" layoutX="1056.0" layoutY="50.0" radius="28.0" stroke="WHITE" strokeType="INSIDE" />
+      <Label fx:id="username" layoutX="846.0" layoutY="31.0" prefHeight="38.0" prefWidth="167.0" textFill="WHITE" underline="true">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="adminBtn" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" onAction="#loadAdminPage" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: darkturquoise; -fx-border-color: red; -fx-border-width: 2;" text="Admin Mode" textFill="WHITE" visible="false">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</Pane>
