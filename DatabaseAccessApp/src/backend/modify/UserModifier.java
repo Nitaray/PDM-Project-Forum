@@ -23,7 +23,7 @@ public class UserModifier extends Modifier {
 
         addSQL = "INSERT INTO \"User\" (Username, Email, FirstName, LastName, DateOfBirth, Status, RegistrationDate, " +
                 "Gender, Country, Password, About, RoleID)" +
-                " VALUES (?, ?, ?, ?, CONVERT(datetime2, ?), ?, ?, ?, ?, ?, ?, ?)";
+                " VALUES (?, ?, ?, ?, CONVERT(datetime2, ?), ?, CONVERT(datetime2, ?), ?, ?, ?, ?, ?)";
         removeSQL = "DELETE FROM \"User\" WHERE UserID = ?";
         updateSQL = "UPDATE \"User\" SET" +
                 " Username = ?," +

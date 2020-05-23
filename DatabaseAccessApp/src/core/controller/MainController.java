@@ -13,8 +13,6 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
-    static LoginController loginController;
-
     @FXML
     private HBox header;
     @FXML
@@ -29,22 +27,23 @@ public class MainController implements Initializable {
             Pane loginPane = FXMLLoader.load(getClass().getResource("../../gui/loginPane.fxml"));
             header.getChildren().add(navPane);
             header.getChildren().add(loginPane);
-            System.out.println(this.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
         LoginController.mainController = this;
         NavPaneController.mainController = this;
+        SignUpHandler.mainController = this;
     }
 
-    public void loadSignUpForm() {
+    public void clearBody() {
+        scrollBodyContent.getChildren().clear();
+    }
+
+    public void loadPaneToBody(Pane pane) {
         try {
-            Pane signUpForm = FXMLLoader.load(getClass().getResource("../../gui/signUpForm.fxml"));
-            scrollBodyContent.getChildren().add(signUpForm);
-            System.out.println(this.toString());
-        } catch (IOException e) {
+            scrollBodyContent.getChildren().add(pane);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }

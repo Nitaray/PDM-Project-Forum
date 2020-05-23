@@ -20,7 +20,7 @@ public class NavPaneController implements Initializable {
     }
 
     public void loadMainPage() {
-
+        mainController.clearBody();
     }
 
     public void loadTopPosts() {

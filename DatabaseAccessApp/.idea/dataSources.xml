@@ -7,11 +7,5 @@
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
       <jdbc-url>jdbc:sqlserver://localhost\MSSQLSERVER:1433;database=Forum</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="BikeStores@localhost" uuid="8020a054-98f6-4e0c-8333-84fcca9f900b">
-      <driver-ref>sqlserver.ms</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://localhost\MSSQLSERVER:1433;database=BikeStores</jdbc-url>
-    </data-source>
   </component>
 </project>

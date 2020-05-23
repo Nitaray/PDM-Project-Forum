@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1100.0" style="-fx-background-color: ghostwhite;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.signUpHandler">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1100.0" style="-fx-background-color: ghostwhite;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.SignUpHandler">
    <children>
       <Label alignment="CENTER_RIGHT" layoutX="422.0" layoutY="81.0" text="SIGN UP" textFill="DIMGRAY">
          <font>
@@ -45,15 +45,15 @@
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <TextField fx:id="dayField" layoutX="535.0" layoutY="453.0" onKeyReleased="#verifyDay" prefHeight="55.0" prefWidth="110.0" promptText="DD">
+      <TextField fx:id="dayField" layoutX="535.0" layoutY="453.0" onInputMethodTextChanged="#verifyDay" onKeyPressed="#verifyDay" onKeyReleased="#verifyDay" prefHeight="55.0" prefWidth="110.0" promptText="DD">
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <TextField fx:id="monthField" layoutX="675.0" layoutY="453.0" onKeyReleased="#verifyMonth" prefHeight="55.0" prefWidth="110.0" promptText="MM">
+      <TextField fx:id="monthField" layoutX="675.0" layoutY="453.0" onInputMethodTextChanged="#verifyMonth" onKeyPressed="#verifyMonth" onKeyReleased="#verifyMonth" prefHeight="55.0" prefWidth="110.0" promptText="MM">
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <TextField fx:id="yearField" layoutX="814.0" layoutY="453.0" onKeyReleased="#verifyYear" prefHeight="55.0" prefWidth="110.0" promptText="YYYY">
+      <TextField fx:id="yearField" layoutX="814.0" layoutY="453.0" onInputMethodTextChanged="#verifyYear" onKeyPressed="#verifyYear" onKeyReleased="#verifyYear" prefHeight="55.0" prefWidth="110.0" promptText="YYYY">
          <font>
             <Font size="18.0" />
          </font></TextField>
@@ -104,5 +104,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Label fx:id="usrFieldWarning" layoutX="164.0" layoutY="284.0" textFill="RED" />
+      <Label fx:id="emailFieldWarning" layoutX="164.0" layoutY="361.0" textFill="RED" />
+      <Label fx:id="passwdFieldWarning" layoutX="164.0" layoutY="435.0" textFill="RED" />
+      <Label fx:id="confirmPasswdFieldWarning" layoutX="164.0" layoutY="508.0" textFill="RED" />
    </children>
 </Pane>
