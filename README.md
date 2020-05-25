@@ -1,54 +1,32 @@
 # NTC - Forum
 
-NTC Forum is a application-based forum created by HCMIU students as a project for the Principles of Database Management course. In the current state, users can read, sort threads by recent, top, hot, or followed. Users can also sign up and login.
+NTC Forum is a application-based forum created by HCMIU students as a project for the Principles of Database Management course.
 
-This is a Java implementation of the famous game Tetris, made by some university students for their Object Oriented Programming course. We hold no copyrights over the title nor the idea of the game. Not for commercial purposes.
+This is a Java implementation of the mockup forum.
 
 ## Features
-* Fully implemented tetris game. (Scores not implemented.)
-* Super Rotation System.
-* Unique homemade graphical assets/textures.
-* Ghost piece supported.
+* Account control (log in and sign up).
+* Thread sort features.
+* Beautiful homemade design.
+* Special admin priviledges.
 
 # Getting started
 ## Dependencies
 * Java 1.8 (Java 8) for Windows
-* lwjgl 3.2.4 (Windows native included in the repository.)
+* JavaFx 2 (should be included in JDK 8).
+* sqljdbc_8.2 (Microsoft SQL Server Java Database Connectivity).
 * IntelliJ preferably (optional).
 
 ## How to download
 ```bash
-git clone https://github.com/Nitaray/OOP---T3TR1S.git
+git clone https://github.com/Nitaray/PDM-Project-Forum.git
 ```
 ## Run
-Navigate to the repository folder. Nagivate to the T3TR1S folder where the T3TR1S.jar file is located.
-Run the following command:
-```bash
-java -jar T3TR1S.jar
-```
-Or just run the T3TR1S.bat file.
-
-# Gameplay
-## Gamemode
-Currently there is only one gamemode, which is survival. You must clear line to survive as long as possible.
-More gamemodes will be implemented in the future.
-
-## Controls
-* Left and right arrows: Moving the t3tr1minos.
-* Down arrow: Soft drop.
-* Spacebar: Hard drop.
-* E: Rotate Counter-clockwise.
-* R: Rotate Clockwise.
-
-# Accomplishments
-## Design patterns and principles
-* Singleton pattern.
-* Stategy pattern.
-* Command pattern..
-* SOLID principle.
+Navigate to the repository folder. Open the DatabaseAccessApp as an IntelliJ Project. (jar file will be supported in the future).
+Create the configuration for the project with the given dependencies. Starting class is Main.
 
 ## Future Goal
-* Implement a system logger.
-* Implement scoring system.
-* Implement more gamemode.
-* Implement ingame effects (Clear line, T-Spin effects, etc.)
+* Add support for threads searching.
+* Add more features to support users creating/modifying threads and comments.
+* Add more specific priviledges for moderators and admins.
+* Fix the tableview feature in Admin Mode.
