@@ -29,6 +29,9 @@ public class UserAuthenticator {
             String correctPassword = res.getString(1);
             String hashed = AuthUtil.hashString(password);
 
+            System.out.println(correctPassword);
+            System.out.println(hashed);
+
             if (correctPassword.equals(hashed))
                 authentication = true;
 
