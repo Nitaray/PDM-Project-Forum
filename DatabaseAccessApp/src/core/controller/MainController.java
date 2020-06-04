@@ -47,6 +47,7 @@ public class MainController implements Initializable {
         ThreadViewController.mainController = this;
         ThreadPreviewController.mainController = this;
         UserPaneController.mainController = this;
+        CommentViewController.mainController = this;
     }
 
     public void clearBody() {

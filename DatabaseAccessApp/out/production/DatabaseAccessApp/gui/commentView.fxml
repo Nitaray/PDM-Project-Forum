@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0"
+      prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="core.controller.CommentViewController">
+   <children>
+      <Hyperlink fx:id="creatorName" layoutX="9.0" onAction="#loadUserPage" style="-fx-border-color: rgba(0, 0, 0, 0); -fx-background-color: rgba(0, 0, 0, 0);" visited="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+      <TextArea fx:id="content" editable="false" layoutX="9.0" layoutY="37.0" prefHeight="152.0" prefWidth="1081.0" wrapText="true" />
+   </children>
+</Pane>

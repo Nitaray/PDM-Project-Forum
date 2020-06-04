@@ -14,10 +14,20 @@
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </TextField>
-      <TextArea fx:id="content" editable="false" layoutY="58.0" prefHeight="841.0" prefWidth="1100.0" style="-fx-border-style: none;" wrapText="true">
+      <TextArea fx:id="content" editable="false" layoutY="99.0" prefHeight="800.0" prefWidth="1100.0" style="-fx-border-style: none;" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </TextArea>
+      <Label layoutX="14.0" layoutY="58.0" text="Author:">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="authorName" layoutX="100.0" layoutY="56.0" onAction="#loadUserPage" style="-fx-border-color: rgba(0, 0, 0, 0);" text="system" visited="true">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Hyperlink>
    </children>
 </Pane>
