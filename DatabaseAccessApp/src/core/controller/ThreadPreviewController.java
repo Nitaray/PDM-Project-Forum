@@ -15,7 +15,11 @@ public class ThreadPreviewController {
     @FXML
     private Label title;
 
+    @FXML
+    private Label author;
+
     private int threadID;
+
 
     private ThreadQuerier threadQuerier = new ThreadQuerier(DatabaseConnectionManager.getDBConnection());
 
@@ -33,8 +37,7 @@ public class ThreadPreviewController {
     }
 
     public void loadThread() {
-        mainController.clearBody();
-        Pane threadPane = null;
+        Pane threadPane;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../../gui/threadView.fxml"));
             threadPane = loader.load();
@@ -42,6 +45,7 @@ public class ThreadPreviewController {
             threadViewController.init(threadID);
             mainController.clearBody();
             mainController.loadPaneToBody(threadPane);
+            threadViewController.loadComments();
         } catch (IOException e) {
             e.printStackTrace();
         }

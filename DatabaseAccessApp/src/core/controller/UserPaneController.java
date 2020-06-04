@@ -40,8 +40,8 @@ public class UserPaneController {
     public void loadAdminPage() {
         Pane adminPage = null;
         try {
-            adminPage = FXMLLoader.load(getClass().getResource("../../gui/adminQueryView.fxml"));
             mainController.clearBody();
+            adminPage = FXMLLoader.load(getClass().getResource("../../gui/adminQueryView.fxml"));
             mainController.loadPaneToBody(adminPage);
         } catch (IOException e) {
             e.printStackTrace();
