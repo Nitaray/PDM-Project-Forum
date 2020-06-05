@@ -1,12 +1,6 @@
 package core;
 
-import backend.auth.UserAuthenticator;
-import backend.modify.UserModifier;
 import gui.Window;
-import javafx.util.Pair;
-
-import java.util.ArrayList;
-
 
 public class Main {
     private static final String URL = "jdbc:sqlserver://localhost:1433;"

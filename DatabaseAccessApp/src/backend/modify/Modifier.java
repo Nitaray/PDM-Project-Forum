@@ -25,7 +25,7 @@ public class Modifier {
     public boolean add(List<Pair<String, ?>> values) {
         try {
             setStatementParams(addStatement, values);
-            System.out.println(addStatement.executeUpdate() + " record added!");
+            System.out.println(addStatement.executeUpdate() + " record(s) added!");
             addStatement.close();
             connection.commit();
             return true;
@@ -65,13 +65,13 @@ public class Modifier {
 
 
     protected void setStatementParams(PreparedStatement statement, List<Pair<String, ?>> values) {
-        for (int index = 1; index <= 12; index++) {
-            try {
-                statement.setNull(index, Types.NULL);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+//        for (int index = 1; index <= 12; index++) {
+//            try {
+//                statement.setNull(index, Types.NULL);
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
         values.forEach(e -> {
             if (fields.containsKey(e.getKey()) && e.getValue() != null) {

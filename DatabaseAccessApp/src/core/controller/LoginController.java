@@ -45,6 +45,7 @@ public class LoginController {
                 UserSession.setLoggedIn(true);
                 mainController.updateUI();
                 login = true;
+                clearLogin();
             }
         }
         if (!login) {

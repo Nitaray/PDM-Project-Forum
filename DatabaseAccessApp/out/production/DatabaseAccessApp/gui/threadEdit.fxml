@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1100.0"
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.ThreadEditController">
+   <children>
+      <TextField fx:id="title" prefHeight="58.0" prefWidth="1100.0" promptText="Title" style="-fx-border-style: none; -fx-background-color: lightgrey;">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="content" layoutY="99.0" prefHeight="800.0" prefWidth="1100.0" promptText="Thread content" style="-fx-border-style: none;" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
+      <Label layoutX="14.0" layoutY="58.0" text="Author:">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="authorName" layoutX="100.0" layoutY="56.0" onAction="#loadUserPage" style="-fx-border-color: rgba(0, 0, 0, 0);" text="system" visited="true">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Hyperlink>
+      <Button layoutX="981.0" layoutY="64.0" mnemonicParsing="false" onAction="#submitEdit" style="-fx-background-color: darkturquoise;" text="Submit"
+              textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="889.0" layoutY="64.0" mnemonicParsing="false" onAction="#cancelEdit" style="-fx-background-color: darkturquoise;" text="Cancel"
+              textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

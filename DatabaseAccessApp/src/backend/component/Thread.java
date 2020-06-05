@@ -3,9 +3,14 @@ package backend.component;
 import backend.modify.Modifier;
 import backend.modify.ThreadModifier;
 import backend.query.Querier;
+import backend.query.ThreadQuerier;
+import core.DatabaseConnectionManager;
+import javafx.util.Pair;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Thread implements forumRelation {
     private int ID;
@@ -13,6 +18,13 @@ public class Thread implements forumRelation {
     private Timestamp dateCreated;
     private String title;
     private String content;
+
+    public Thread(int userID, String title, String content) {
+        this.userID = userID;
+        this.dateCreated = new Timestamp(System.currentTimeMillis());
+        this.title = title;
+        this.content = content;
+    }
 
     public Thread(int ID, int userID, Timestamp dateCreated, String title, String content) {
         this.ID = ID;
@@ -52,7 +64,14 @@ public class Thread implements forumRelation {
 
     @Override
     public void addToDatabase(Modifier modifier) {
-
+        List<Pair<String, ?>> values = new LinkedList<Pair<String, ?>>() {{
+            add(new Pair<String, Integer>("UserID", userID));
+            add(new Pair<String, Timestamp>("DateCreated", dateCreated));
+            add(new Pair<String, String>("ThreadTitle", title));
+            add(new Pair<String, String>("Content", content));
+        }};
+        modifier.add(values);
+        ID = new ThreadQuerier(DatabaseConnectionManager.getDBConnection()).getThreadIDByUserIDAndTime(userID, dateCreated);
     }
 
     @Override
@@ -67,6 +86,12 @@ public class Thread implements forumRelation {
 
     @Override
     public void updateToDatabase(Modifier modifier) {
-
+        List<Pair<String, ?>> values = new LinkedList<Pair<String, ?>>() {{
+            add(new Pair<>("UserID", userID));
+            add(new Pair<>("DateCreated", dateCreated));
+            add(new Pair<>("ThreadTitle", title));
+            add(new Pair<>("Content", content));
+        }};
+        modifier.update(ID, values);
     }
 }

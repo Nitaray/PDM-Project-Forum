@@ -11,12 +11,28 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1120.0" style="-fx-background-color: rgba(0, 0, 0, 0);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.UserPaneController">
    <children>
       <Circle fx:id="rankCircle" fill="#1fff4f" layoutX="1056.0" layoutY="50.0" radius="28.0" stroke="WHITE" strokeType="INSIDE" />
-      <Label fx:id="username" layoutX="846.0" layoutY="31.0" prefHeight="38.0" prefWidth="167.0" textFill="WHITE" underline="true">
+      <Button fx:id="adminBtn" focusTraversable="false" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" onAction="#loadAdminPage" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: darkturquoise; -fx-border-color: red; -fx-border-width: 2;" text="Admin Mode" textFill="WHITE" visible="false">
          <font>
-            <Font name="System Bold Italic" size="18.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
-      </Label>
-      <Button fx:id="adminBtn" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" onAction="#loadAdminPage" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: darkturquoise; -fx-border-color: red; -fx-border-width: 2;" text="Admin Mode" textFill="WHITE" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="194.0" layoutY="36.0" mnemonicParsing="false" onAction="#createNewThread" prefHeight="30.0" prefWidth="112.0" style="-fx-background-color: darkturquoise;" text="New Thread" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Hyperlink fx:id="username" layoutX="690.0" layoutY="28.0" onAction="#loadUserPage" prefHeight="38.0" prefWidth="147.0" style="-fx-border-color: rgbd(0, 0, 0, 0);" textFill="DARKTURQUOISE" visited="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Hyperlink>
+      <Button layoutX="869.0" layoutY="35.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: darkturquoise;" text="Logout" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

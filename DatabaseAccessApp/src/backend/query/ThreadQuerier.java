@@ -137,4 +137,22 @@ public class ThreadQuerier extends Querier{
         }
         return null;
     }
+
+    public int getThreadIDByUserIDAndTime(int userID, Timestamp time) {
+        String SQL = "SELECT ThreadID FROM Thread WHERE UserID = ? AND DateCreated = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(SQL);
+            statement.setInt(1, userID);
+            statement.setTimestamp(2, time);
+            ResultSet res = statement.executeQuery();
+
+            if (res.isBeforeFirst()) {
+                res.next();
+                return res.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }
