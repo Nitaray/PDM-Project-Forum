@@ -18,6 +18,8 @@ public class Modifier {
     protected PreparedStatement removeStatement;
     protected PreparedStatement updateStatement;
 
+    protected int param_size = 0;
+
     public Modifier(Connection connection) {
         this.connection = connection;
     }
@@ -65,13 +67,13 @@ public class Modifier {
 
 
     protected void setStatementParams(PreparedStatement statement, List<Pair<String, ?>> values) {
-//        for (int index = 1; index <= 12; index++) {
-//            try {
-//                statement.setNull(index, Types.NULL);
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        for (int index = 1; index <= param_size; index++) {
+            try {
+                statement.setNull(index, Types.NULL);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
         values.forEach(e -> {
             if (fields.containsKey(e.getKey()) && e.getValue() != null) {

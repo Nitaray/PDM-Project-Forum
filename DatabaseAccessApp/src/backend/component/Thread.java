@@ -94,4 +94,14 @@ public class Thread implements forumRelation {
         }};
         modifier.update(ID, values);
     }
+
+//    public void updateToDatabase(ThreadModifier modifier) {
+//        List<Pair<String, ?>> values = new LinkedList<Pair<String, ?>>() {{
+//            add(new Pair<>("UserID", userID));
+//            add(new Pair<>("DateCreated", dateCreated));
+//            add(new Pair<>("ThreadTitle", title));
+//            add(new Pair<>("Content", content));
+//        }};
+//        modifier.update(ID, values);
+//    }
 }

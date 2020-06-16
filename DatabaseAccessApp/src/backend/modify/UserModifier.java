@@ -21,6 +21,8 @@ public class UserModifier extends Modifier {
         fields.put("About", 11);
         fields.put("RoleID", 12);
 
+        param_size = 12;
+
         addSQL = "INSERT INTO \"User\" (Username, Email, FirstName, LastName, DateOfBirth, Status, RegistrationDate, " +
                 "Gender, Country, Password, About, RoleID)" +
                 " VALUES (?, ?, ?, ?, CONVERT(datetime2, ?), ?, CONVERT(datetime2, ?), ?, ?, ?, ?, ?)";

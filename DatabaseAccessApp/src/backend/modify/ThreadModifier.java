@@ -12,6 +12,8 @@ public class ThreadModifier extends Modifier {
         fields.put("ThreadTitle", 3);
         fields.put("Content", 4);
 
+        param_size = 4;
+
         updateSQL = "UPDATE \"Thread\" SET" +
                 " UserID = ?," +
                 " DateCreated = ?," +

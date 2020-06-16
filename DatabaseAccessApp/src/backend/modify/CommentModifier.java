@@ -15,6 +15,8 @@ public class CommentModifier extends Modifier{
         fields.put("ThreadID", 3);
         fields.put("Content", 4);
 
+        param_size = 4;
+
         addSQL = "INSERT INTO \"Comment\" (UserID, DateCreated, ThreadID, Content)" +
                 " VALUES (?, ?, ?, ?)";
 
